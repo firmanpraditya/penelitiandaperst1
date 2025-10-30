@@ -3,56 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rencana Penelitian Dana Persekutuan GKJW</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Visualisasi Proposal Penelitian DAPER GKJW</title>
     <style>
-        /*
-         * ----------------------------
-         * 🎨 Desain Sistem & Variabel
-         * ----------------------------
-         */
-        :root {
-            /* Palet Warna */
-            --primary-blue: #1e3a8a;
-            --secondary-blue: #3b82f6;
-            --accent-gold: #f59e0b;
-            --dark-gray: #1f2937;
-            --medium-gray: #6b7280;
-            --light-gray: #f3f4f6;
-            --white: #ffffff;
-
-            /* Variabel Spasi & Ukuran */
-            --spacing-xs: 4px;
-            --spacing-sm: 8px;
-            --spacing-md: 16px;
-            --spacing-lg: 24px;
-            --spacing-xl: 32px;
-            --spacing-2xl: 40px;
-            --spacing-3xl: 48px;
-            --spacing-4xl: 60px;
-
-            /* Ukuran Font */
-            --font-size-xs: 12px;
-            --font-size-sm: 13px;
-            --font-size-md: 14px;
-            --font-size-lg: 16px;
-            --font-size-xl: 20px;
-            --font-size-2xl: 24px;
-            --font-size-3xl: 28px;
-            --font-size-4xl: 42px;
-
-            /* Bayangan (Shadows) */
-            --shadow-light: 0 2px 8px rgba(31, 41, 55, 0.04);
-            --shadow-medium: 0 4px 16px rgba(31, 41, 55, 0.08);
-            --shadow-heavy: 0 8px 32px rgba(31, 41, 55, 0.12);
-        }
-
-        /*
-         * ----------------------------
-         * 🌍 Global & Base Styles
-         * ----------------------------
-         */
         * {
             margin: 0;
             padding: 0;
@@ -60,1099 +12,681 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.7;
-            color: var(--dark-gray);
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            font-weight: 400;
-            letter-spacing: -0.01em;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+            padding: 20px;
         }
 
-        .document-wrapper {
-            max-width: 1400px;
-            margin: var(--spacing-2xl) auto;
-            padding: 0 var(--spacing-lg);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .section {
-            padding: var(--spacing-2xl) var(--spacing-3xl);
-            border-bottom: 1px solid #e5e7eb;
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            text-align: center;
+            border-top: 4px solid #4A90E2;
         }
 
-        .section:last-of-type {
-            border-bottom: none;
+        .header h1 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 10px;
         }
 
-        /*
-         * ----------------------------
-         * 📄 Komponen Utama (Main Content)
-         * ----------------------------
-         */
-        .document-header {
-            background: var(--white);
-            border-radius: 16px;
-            box-shadow: var(--shadow-medium);
-            padding: var(--spacing-4xl);
-            margin-bottom: var(--spacing-xl);
+        .header p {
+            color: #7f8c8d;
+            font-size: 16px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+            color: #5a6c7d;
+        }
+
+        .tab-btn:hover {
+            border-color: #4A90E2;
+            color: #4A90E2;
+            transform: translateY(-1px);
+        }
+
+        .tab-btn.active {
+            background: #4A90E2;
+            color: white;
+            border-color: #4A90E2;
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            color: #2c3e50;
+            font-size: 22px;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #4A90E2;
+            padding-bottom: 10px;
+        }
+
+        .card h3 {
+            color: #34495e;
+            font-size: 18px;
+            margin: 15px 0 10px 0;
+        }
+
+        .card p, .card li {
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .card ul {
+            padding-left: 20px;
+        }
+
+        .timeline {
             position: relative;
-            overflow: hidden;
+            padding-left: 40px;
         }
 
-        .document-header::before {
+        .timeline::before {
             content: '';
             position: absolute;
+            left: 15px;
             top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, var(--accent-gold) 100%);
+            bottom: 0;
+            width: 3px;
+            background: #4A90E2;
         }
 
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: var(--spacing-2xl);
-        }
-
-        .header-identity {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-lg);
-        }
-
-        .logo-placeholder {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            border-radius: 12px;
-            display: grid;
-            place-content: center;
-            color: var(--white);
-            font-weight: 700;
-            font-size: var(--font-size-md);
-            text-align: center;
-            box-shadow: var(--shadow-light);
-        }
-
-        .institution-info {
-            flex: 1;
-        }
-
-        .institution-name {
-            color: var(--primary-blue);
-            font-size: var(--font-size-md);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .department {
-            color: var(--medium-gray);
-            font-size: var(--font-size-sm);
-            font-weight: 500;
-        }
-
-        .document-meta {
-            text-align: right;
-            font-size: var(--font-size-xs);
-            color: var(--medium-gray);
-        }
-
-        .document-title {
-            text-align: center;
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .main-title {
-            font-size: var(--font-size-4xl);
-            font-weight: 700;
-            color: var(--primary-blue);
-            margin-bottom: var(--spacing-md);
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-        }
-
-        .subtitle {
-            font-size: var(--font-size-xl);
-            color: var(--medium-gray);
-            font-weight: 500;
-            line-height: 1.4;
-        }
-
-        /*
-         * ----------------------------
-         * 📖 Konten & Tata Letak
-         * ----------------------------
-         */
-        .main-layout {
-            display: grid;
-            grid-template-columns: 1fr 380px;
-            gap: var(--spacing-xl);
-            margin-bottom: var(--spacing-xl);
-        }
-
-        .main-content {
-            background: var(--white);
-            border-radius: 16px;
-            box-shadow: var(--shadow-medium);
-            overflow: hidden;
-        }
-
-        .section-heading {
-            display: flex;
-            align-items: center;
-            margin-bottom: var(--spacing-lg);
-            gap: var(--spacing-md);
-        }
-
-        .section-number {
-            width: 32px;
-            height: 32px;
-            background: var(--primary-blue);
-            color: var(--white);
-            border-radius: 8px;
-            display: grid;
-            place-content: center;
-            font-weight: 600;
-            font-size: var(--font-size-md);
-            flex-shrink: 0;
-        }
-
-        .section-title {
-            font-size: var(--font-size-2xl);
-            font-weight: 700;
-            color: var(--primary-blue);
-            margin: 0;
-        }
-
-        .section-body p,
-        .section-body li {
-            font-size: var(--font-size-lg);
-            line-height: 1.7;
-            color: var(--dark-gray);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .section-body p:last-child {
-            margin-bottom: 0;
-        }
-
-        .highlight-text {
-            background: linear-gradient(120deg, #fef3c7 0%, transparent 100%);
-            padding: 2px 4px;
-            border-radius: 4px;
-            font-style: italic;
-            font-weight: 500;
-        }
-
-        .mt-4 {
-            margin-top: var(--spacing-2xl);
-        }
-
-        /* Metodologi */
-        .methodology-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-lg);
-            margin: var(--spacing-lg) 0;
-        }
-
-        .methodology-card {
-            background: #f8fafc;
-            padding: var(--spacing-lg);
-            border-radius: 12px;
-            border-left: 4px solid var(--secondary-blue);
-            transition: all 0.3s ease;
-        }
-
-        .methodology-card:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-light);
-        }
-
-        .methodology-card h3 {
-            color: var(--primary-blue);
-            font-size: var(--font-size-lg);
-            font-weight: 600;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .methodology-card p {
-            font-size: var(--font-size-md);
-            line-height: 1.6;
-            color: var(--medium-gray);
-            margin-bottom: 0; /* Override default paragraph margin */
-        }
-
-        /* Variabel Penelitian */
-        .variables-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-md);
-            margin: var(--spacing-lg) 0;
-        }
-
-        .variable-group {
-            background: #f8fafc;
-            border-radius: 12px;
-            padding: var(--spacing-lg);
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .variable-group.independent {
-            border-color: var(--secondary-blue);
-        }
-
-        .variable-group.dependent {
-            border-color: var(--accent-gold);
-        }
-
-        .variable-group h3 {
-            font-size: var(--font-size-md);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .variable-group.independent h3 {
-            color: var(--secondary-blue);
-        }
-
-        .variable-group.dependent h3 {
-            color: var(--accent-gold);
-        }
-
-        .variable-item {
-            background: var(--white);
-            padding: var(--spacing-md);
-            border-radius: 8px;
-            margin-bottom: var(--spacing-sm);
-            border-left: 3px solid var(--light-gray);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .variable-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .variable-item h4 {
-            font-size: var(--font-size-md);
-            font-weight: 600;
-            color: var(--primary-blue);
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .variable-item p {
-            font-size: var(--font-size-sm);
-            color: var(--medium-gray);
-            line-height: 1.5;
-            margin-bottom: 0; /* Override default paragraph margin */
-        }
-
-        /* Hipotesis */
-        .hypothesis-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-md);
-            margin: var(--spacing-lg) 0;
-        }
-
-        .hypothesis-card {
-            padding: var(--spacing-lg);
-            border-radius: 12px;
-            border: 2px solid;
+        .timeline-item {
             position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #4A90E2;
         }
 
-        .hypothesis-card.h0 {
-            background: #fef2f2;
-            border-color: #fca5a5;
-        }
-
-        .hypothesis-card.h1 {
-            background: #f0fdf4;
-            border-color: #86efac;
-        }
-
-        .hypothesis-card h3 {
-            font-size: var(--font-size-lg);
-            font-weight: 700;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .hypothesis-card.h0 h3 {
-            color: #dc2626;
-        }
-
-        .hypothesis-card.h1 h3 {
-            color: #16a34a;
-        }
-
-        .hypothesis-card p {
-            font-size: var(--font-size-md);
-            line-height: 1.6;
-            color: var(--dark-gray);
-            margin-bottom: 0; /* Override default paragraph margin */
-        }
-        
-        /* Tujuan Penelitian List */
-        .purpose-list {
-            list-style: none;
-            padding-left: 0;
-            margin: var(--spacing-lg) 0;
-        }
-
-        .purpose-list li {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: var(--spacing-md);
-            font-size: var(--font-size-lg);
-            line-height: 1.6;
-            color: var(--dark-gray);
-        }
-        
-        .purpose-list li::before {
-            content: '✓';
+        .timeline-item::before {
+            content: '';
             position: absolute;
-            left: 0;
-            top: 0;
-            font-weight: 700;
-            color: #28a745; /* green checkmark */
+            left: -47px;
+            top: 25px;
+            width: 20px;
+            height: 20px;
+            background: #4A90E2;
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
         }
 
+        .timeline-date {
+            font-weight: bold;
+            color: #4A90E2;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
 
-        /* Tim Peneliti */
-        .team-section {
-            background: var(--white);
-            border-radius: 16px;
-            box-shadow: var(--shadow-medium);
-            padding: var(--spacing-2xl) var(--spacing-3xl);
-            margin-top: var(--spacing-xl); /* Add margin to separate from main layout */
+        .timeline-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .timeline-desc {
+            color: #333;
+            font-size: 14px;
+        }
+
+        .variable-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .variable-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #e1e8ed;
+        }
+
+        .variable-card p {
+            color: #333;
+        }
+
+        .variable-code {
+            display: inline-block;
+            background: #4A90E2;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .problem-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .problem-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-left: 4px solid #4A90E2;
+            border-radius: 5px;
+        }
+
+        .problem-list li strong {
+            color: #4A90E2;
+        }
+
+        .budget-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .budget-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .budget-table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .budget-table tr:hover {
+            background: #f8f9ff;
+        }
+
+        .total-row {
+            font-weight: bold;
+            background: #667eea15;
         }
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-lg);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
         }
 
         .team-member {
-            background: #f8fafc;
-            padding: var(--spacing-md);
-            border-radius: 12px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
             text-align: center;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
+            border: 2px solid #e1e8ed;
         }
 
-        .team-member:hover {
-            border-color: var(--secondary-blue);
-            transform: translateY(-2px);
+        .team-member strong {
+            display: block;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            font-size: 16px;
         }
 
-        .team-member h3 {
-            font-weight: 700;
-            color: var(--primary-blue);
-            font-size: var(--font-size-lg);
-            margin-bottom: var(--spacing-xs);
+        .team-member span {
+            color: #333;
+            font-size: 14px;
         }
 
-        .team-member p {
-            color: var(--medium-gray);
-            font-size: var(--font-size-sm);
-            margin: 0; /* Override default paragraph margin */
+        .highlight-box {
+            background: #4A90E2;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
         }
 
-        /*
-         * ----------------------------
-         * 📊 Sidebar & Visualisasi
-         * ----------------------------
-         */
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-lg);
+        .highlight-box h3 {
+            color: white;
+            margin-bottom: 10px;
         }
 
-        .sidebar-card {
-            background: var(--white);
-            border-radius: 16px;
-            box-shadow: var(--shadow-medium);
-            overflow: hidden;
+        .highlight-box p {
+            color: white;
         }
 
-        .sidebar-header {
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            color: var(--white);
-            padding: var(--spacing-xl) var(--spacing-lg);
-            font-weight: 600;
-            font-size: var(--font-size-lg);
+        .highlight-box ul {
+            color: white;
         }
 
-        .sidebar-body {
-            padding: var(--spacing-lg);
+        .highlight-box li {
+            color: white;
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-lg);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
         }
 
-        .stat-item {
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
             text-align: center;
-            padding: var(--spacing-xl);
-            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-            border-radius: 12px;
-            border: 2px solid #e2e8f0;
-            transition: all 0.3s ease;
-        }
-
-        .stat-item:hover {
-            border-color: var(--secondary-blue);
-            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 2px solid #e1e8ed;
         }
 
         .stat-number {
-            font-size: var(--font-size-3xl);
-            font-weight: 700;
-            color: var(--primary-blue);
-            display: block;
-            margin-bottom: var(--spacing-xs);
+            font-size: 36px;
+            font-weight: bold;
+            color: #4A90E2;
+            margin-bottom: 5px;
         }
 
         .stat-label {
-            font-size: var(--font-size-xs);
-            color: var(--medium-gray);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        
-        .stat-label-large {
-             font-size: var(--font-size-sm);
-        }
-
-        /* Grafik Batang */
-        .chart-container {
-            background: #f8fafc;
-            border-radius: 12px;
-            padding: var(--spacing-lg);
-            margin: var(--spacing-md) 0;
-        }
-
-        .chart-title {
-            font-size: var(--font-size-md);
-            font-weight: 600;
-            color: var(--primary-blue);
-            margin-bottom: var(--spacing-xl);
-            text-align: center;
-        }
-
-        .chart-visual {
-            height: 200px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-around;
-            padding: 0 var(--spacing-md);
-            position: relative;
-        }
-
-        .chart-visual::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: var(--spacing-md);
-            right: var(--spacing-md);
-            height: 1px;
-            background: #d1d5db;
-        }
-
-        .chart-bar {
-            width: 24px;
-            background: linear-gradient(to top, var(--primary-blue), var(--secondary-blue));
-            border-radius: 2px 2px 0 0;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .chart-bar:hover {
-            transform: scale(1.1);
-        }
-
-        .chart-bar::after {
-            content: attr(data-value);
-            position: absolute;
-            top: -24px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 10px;
-            color: var(--primary-blue);
-            font-weight: 600;
-        }
-
-        .chart-bar::before {
-            content: attr(data-label);
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 10px;
-            color: var(--medium-gray);
-        }
-
-        /* Jadwal (Timeline) */
-        .timeline {
-            margin: var(--spacing-md) 0;
-        }
-
-        .timeline-item {
-            display: flex;
-            align-items: center;
-            padding: var(--spacing-sm) 0;
-            border-bottom: 1px solid #f1f5f9;
-            position: relative;
-        }
-
-        .timeline-item:last-child {
-            border-bottom: none;
-        }
-
-        .timeline-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--secondary-blue);
-            border-radius: 50%;
-            margin-right: var(--spacing-md);
-            flex-shrink: 0;
-        }
-
-        .timeline-content {
-            flex: 1;
-        }
-
-        .timeline-date {
-            font-size: var(--font-size-xs);
-            font-weight: 600;
-            color: var(--primary-blue);
-            display: block;
-            margin-bottom: 2px;
-        }
-
-        .timeline-task {
-            font-size: var(--font-size-sm);
-            color: var(--medium-gray);
-        }
-        
-        /* Indikator Variabel List */
-        .variable-list {
-            list-style: none;
-            padding-left: 0;
-            margin: var(--spacing-md) 0 var(--spacing-lg) 0;
-        }
-        
-        .variable-list li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: var(--spacing-sm);
-            font-size: var(--font-size-sm);
-            line-height: 1.5;
-            color: var(--dark-gray);
-        }
-        
-        .variable-list li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            top: 0;
-            font-size: var(--font-size-lg);
-            line-height: 1;
-            color: var(--secondary-blue);
-        }
-        
-        .variable-label {
-            font-size: var(--font-size-md);
-            font-weight: 600;
-            color: var(--primary-blue);
-            margin-top: var(--spacing-md);
-            margin-bottom: var(--spacing-sm);
-            display: block;
-        }
-
-
-        /*
-         * ----------------------------
-         * 📱 Responsif & Media Queries
-         * ----------------------------
-         */
-        @media (max-width: 1024px) {
-            .main-layout {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-lg);
-            }
-            
-            .methodology-grid,
-            .variables-container,
-            .hypothesis-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .document-wrapper {
-                padding: 0 var(--spacing-md);
-                margin: var(--spacing-lg) auto;
-            }
-            
-            .document-header {
-                padding: var(--spacing-xl) var(--spacing-lg);
-            }
-            
-            .header-content {
-                flex-direction: column;
-                gap: var(--spacing-md);
-                align-items: flex-start;
-            }
-            
-            .main-title {
-                font-size: var(--font-size-3xl);
-            }
-            
-            .section {
-                padding: var(--spacing-lg) var(--spacing-md);
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /*
-         * ----------------------------
-         * ✨ Animasi
-         * ----------------------------
-         */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .timeline-item {
-            opacity: 0;
-            transform: translateX(-30px);
-            /* Animasi akan ditambahkan secara dinamis oleh JS */
-        }
-        .timeline-item.timeline-animate { /* Class yang ditambahkan oleh JS */
-            animation: slideInLeft 0.6s ease-out forwards;
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .variable-item,
-        .stat-item,
-        .methodology-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: #333;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
-    <div class="document-wrapper">
-        <header class="document-header fade-up">
-            <div class="header-content">
-                <div class="header-identity">
-                    <div class="logo-placeholder">GKJW</div>
-                    <div class="institution-info">
-                        <hgroup>
-                            <h2 class="institution-name">Gereja Kristen Jawa Wetan</h2>
-                            <p class="department">Komperlitbang Majelis Daerah Surabaya Timur 1</p>
-                        </hgroup>
-                    </div>
-                </div>
-                <div class="document-meta">
-                    <p>Rencana Penelitian</p>
-                    <p>September 2025</p>
-                </div>
-            </div>
-            
-            <div class="document-title">
-                <h1 class="main-title">Analisis & Evaluasi Dana Persekutuan GKJW</h1>
-                <p class="subtitle">se-Majelis Daerah Surabaya Timur 1</p>
-            </div>
-        </header>
-
-        <div class="main-layout">
-            <main class="main-content fade-up">
-                <section class="section">
-                    <div class="section-heading">
-                        <div class="section-number">1</div>
-                        <h2 class="section-title">Latar Belakang</h2>
-                    </div>
-                    <div class="section-body">
-                        <p>Pada Sidang ke-113 Majelis Agung GKJW yang diadakan pada 23–29 Juni 2016 di Jemaat Purwoharjo, Kediri, diputuskan sistem Dana Persekutuan Majelis Agung sebesar 30% dari realisasi penerimaan anggaran jemaat dua tahun sebelumnya. Kebijakan ini lahir sebagai bentuk nyata semangat <strong class="highlight-text">Patunggilan Kang Nyawiji</strong> yang ingin diwujudkan di seluruh GKJW.</p>
-                        <p>Dengan adanya perubahan sistem tersebut, GKJW mulai menerapkan sentralisasi japen. Langkah ini bertujuan untuk memperbaiki tata kelola, antara lain dengan mempermudah distribusi dan penempatan pendeta secara lebih merata di seluruh wilayah pelayanan. Selain itu, penataan ini juga membantu gereja memenuhi kewajiban sebagai warga negara, seperti pembayaran pajak serta kepesertaan BPJS Kesehatan dan Ketenagakerjaan.</p>
-                        <p>Seiring berjalannya waktu, terutama pasca pandemi, muncul tantangan baru. Beberapa jemaat mengalami kesulitan untuk memenuhi "hak istimewanya" menyetor Dana Persekutuan. Akibatnya, setoran Dana Persekutuan di lingkup Majelis Daerah Surabaya Timur 1 tidak lagi mencapai target yang diharapkan. Berbagai faktor diduga memengaruhi kondisi ini, antara lain tingkat kepercayaan jemaat terhadap pengelolaan dana, keterbukaan laporan keuangan, serta kondisi naik-turun penerimaan persembahan yang dialami oleh masing-masing jemaat. Karena itu, penelitian ini perlu dilakukan untuk menemukan penyebab utama sekaligus memberikan usulan perbaikan agar sistem Dana Persekutuan dapat berjalan lebih baik ke depannya.</p>
-                    </div>
-                </section>
-                
-                <section class="section">
-                    <div class="section-heading">
-                        <div class="section-number">2</div>
-                        <h2 class="section-title">Rumusan Masalah</h2>
-                    </div>
-                    <div class="section-body">
-                        <p><strong>a.</strong> Apakah ada hubungan antara tingkat kepercayaan jemaat, keterbukaan laporan keuangan, kondisi penerimaan persembahan, dan besarnya Dana Persekutuan yang dikirim jemaat?</p>
-                        <p><strong>b.</strong> Apakah penerimaan Dana Persekutuan sejalan dengan kebutuhan dan pengeluaran Majelis Agung?</p>
-                        <p><strong>c.</strong> Bagaimana kondisi faktual keuangan jemaat saat ini, dan bagaimana hal itu berpengaruh terhadap Dana Persekutuan?</p>
-                    </div>
-                </section>
-                
-                <section class="section">
-                    <div class="section-heading">
-                        <div class="section-number">3</div>
-                        <h2 class="section-title">Tujuan Penelitian</h2>
-                    </div>
-                    <div class="section-body">
-                        <ul class="purpose-list">
-                            <li>Mengukur tingkat kepercayaan jemaat serta keterbukaan laporan keuangan Majelis Agung.</li>
-                            <li>Mengetahui hubungan antara kondisi penerimaan persembahan dan kontribusi Dana Persekutuan.</li>
-                            <li>Memberikan rekomendasi praktis untuk meningkatkan kepercayaan dan semangat jemaat dalam mendukung Dana Persekutuan.</li>
-                        </ul>
-                    </div>
-                </section>
-                
-                <section class="section">
-                    <div class="section-heading">
-                        <div class="section-number">4</div>
-                        <h2 class="section-title">Hipotesis Penelitian</h2>
-                    </div>
-                    <div class="section-body">
-                        <div class="hypothesis-container">
-                            <div class="hypothesis-card h0">
-                                <h3>H0 (Hipotesis Nol)</h3>
-                                <p>Tidak ada hubungan yang berarti antara kepercayaan jemaat, keterbukaan laporan, kondisi penerimaan persembahan, dan besarnya Dana Persekutuan.</p>
-                            </div>
-                            <div class="hypothesis-card h1">
-                                <h3>H1 (Hipotesis Alternatif)</h3>
-                                <p>Ada hubungan yang berarti antara kepercayaan jemaat, keterbukaan laporan, kondisi penerimaan persembahan, dan besarnya Dana Persekutuan.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                
-                <section class="section">
-                    <div class="section-heading">
-                        <div class="section-number">5</div>
-                        <h2 class="section-title">Metodologi Penelitian</h2>
-                    </div>
-                    <div class="section-body">
-                        <div class="methodology-grid">
-                            <div class="methodology-card">
-                                <h3>Jenis Penelitian</h3>
-                                <p>Penelitian kuantitatif dengan kuesioner sederhana dan analisis laporan keuangan (laporan keuangan Jemaat dan Majelis Agung 3-5 tahun terakhir).</p>
-                            </div>
-                            <div class="methodology-card">
-                                <h3>Populasi & Sampel</h3>
-                                <p>Penelitian ini menyasar seluruh Majelis Jemaat dan warga jemaat di lingkup Majelis Daerah Surabaya Timur 1.</p>
-                            </div>
-                            <div class="methodology-card">
-                                <h3>Teknik Pengumpulan Data</h3>
-                                <p>Kuesioner dengan pilihan jawaban skala 1-5 (Sangat Tidak Setuju - Sangat Setuju) dan studi dokumen laporan keuangan 3-5 tahun terakhir.</p>
-                            </div>
-                            <div class="methodology-card">
-                                <h3>Analisis Data</h3>
-                                <p>Analisis deskriptif (menghitung rata-rata dan distribusi jawaban) dan inferensial (uji korelasi dan regresi).</p>
-                            </div>
-                        </div>
-                        <p class="mt-4"><strong>Target Respons Minimum:</strong></p>
-                        <ul>
-                            <li><strong>Majelis Jemaat:</strong> minimal 80% dari Majelis Jemaat inti yang ditunjuk di setiap jemaat.</li>
-                            <li><strong>Warga Jemaat:</strong> sekurang-kurangnya 70% dari kuota yang ditetapkan per jemaat.</li>
-                        </ul>
-                    </div>
-                </section>
-            </main>
-
-            <aside class="sidebar fade-up">
-                <div class="sidebar-card">
-                    <div class="sidebar-header">Target & Teknik Penelitian</div>
-                    <div class="sidebar-body">
-                        <div class="stats-grid">
-                            <div class="stat-item">
-                                <span class="stat-number">80%</span>
-                                <span class="stat-label">Respons Majelis Jemaat</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">70%</span>
-                                <span class="stat-label">Respons Warga Jemaat</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">1-5</span>
-                                <span class="stat-label">Skala Likert</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">3-5</span>
-                                <span class="stat-label">Tahun Laporan</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="sidebar-card">
-                    <div class="sidebar-header">Jadwal Pelaksanaan</div>
-                    <div class="sidebar-body">
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-content">
-                                    <p class="timeline-date">20-21 Sept 2025</p>
-                                    <p class="timeline-task">Persiapan instrumen & sosialisasi</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-content">
-                                    <p class="timeline-date">25 Sept - 25 Okt 2025</p>
-                                    <p class="timeline-task">Pengumpulan data responden</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-content">
-                                    <p class="timeline-date">27-31 Okt 2025</p>
-                                    <p class="timeline-task">Rekapitulasi & analisis data</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-content">
-                                    <p class="timeline-date">03-07 Nov 2025</p>
-                                    <p class="timeline-task">Penyusunan laporan & kesimpulan</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-content">
-                                    <p class="timeline-date">12 Nov 2025</p>
-                                    <p class="timeline-task">Presentasi hasil & saran</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="sidebar-card">
-                    <div class="sidebar-header">Indikator Variabel Penelitian</div>
-                    <div class="sidebar-body">
-                        <span class="variable-label">Variabel X (Faktor yang Memengaruhi)</span>
-                        <ul class="variable-list">
-                            <li>Kepercayaan jemaat terhadap pengelolaan Dana Persekutuan.</li>
-                            <li>Keterbukaan laporan keuangan Majelis Agung.</li>
-                            <li>Kondisi naik-turunnya penerimaan persembahan jemaat.</li>
-                        </ul>
-                        <span class="variable-label">Variabel Y (Tingkat Kontribusi Dana Persekutuan)</span>
-                        <ul class="variable-list">
-                            <li>Jemaat rutin menyetor Dana Persekutuan ke Majelis Agung.</li>
-                            <li>Jumlah dana yang disetor stabil dari tahun ke tahun.</li>
-                            <li>Jemaat bersedia meningkatkan setoran jika ada laporan yang lebih terbuka.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="sidebar-card">
-                    <div class="sidebar-header">Rencana Keluaran</div>
-                    <div class="sidebar-body">
-                        <ul class="variable-list">
-                            <li>Dokumen laporan akhir berisi hasil analisis dan kesimpulan.</li>
-                            <li>Grafik sederhana dan visualisasi data mengenai tren persembahan dan Dana Persekutuan.</li>
-                            <li>Rekomendasi praktis untuk peningkatan pengelolaan dan keterbukaan Dana Persekutuan.</li>
-                            <li>Template kuesioner yang bisa dipakai lagi.</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </aside>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Analisis dan Evaluasi Dana Persekutuan GKJW</h1>
+            <p>Majelis Daerah Surabaya Timur 1</p>
         </div>
 
-        <section class="team-section fade-up">
-            <div class="section-heading">
-                <div class="section-number">6</div>
-                <h2 class="section-title">Tim Peneliti</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('overview')">Ringkasan</button>
+            <button class="tab-btn" onclick="showTab('problem')">Rumusan Masalah</button>
+            <button class="tab-btn" onclick="showTab('variables')">Variabel</button>
+            <button class="tab-btn" onclick="showTab('timeline')">Jadwal</button>
+            <button class="tab-btn" onclick="showTab('team')">Tim</button>
+        </div>
+
+        <div id="overview" class="content-section active">
+            <div class="card">
+                <h2>📌 Latar Belakang</h2>
+                <p>Pada Sidang ke-113 Majelis Agung GKJW (23-29 Juni 2016), diputuskan sistem Dana Persekutuan sebesar <strong>30% dari realisasi penerimaan anggaran jemaat</strong> dua tahun sebelumnya sebagai wujud semangat <strong>Patunggilan Kang Nyawiji</strong>.</p>
+                
+                <div class="highlight-box">
+                    <h3>⚠️ Tantangan Utama</h3>
+                    <p>Pasca pandemi, beberapa jemaat mengalami penurunan kemampuan menjaga konsistensi setoran DAPER. Kendala bukan hanya ekonomi, tetapi juga terkait <strong>cara pandang, pemahaman, dan kepercayaan</strong> terhadap DAPER.</p>
+                </div>
+
+                <h3>🎯 Tujuan Penelitian</h3>
+                <ul>
+                    <li>Mengukur persepsi, kepercayaan, dan sentimen jemaat terhadap DAPER</li>
+                    <li>Menilai pemahaman tentang fungsi dan tujuan DAPER</li>
+                    <li>Mengukur rasio persembahan Minggu terhadap pembayaran DAPER</li>
+                    <li>Memetakan sumber pendanaan DAPER di setiap jemaat</li>
+                    <li>Menyusun rekomendasi pembinaan dan kebijakan yang lebih partisipatif</li>
+                </ul>
             </div>
-            <div class="team-grid">
-                <div class="team-member">
-                    <h3>Teguh Iman</h3>
-                    <p>Litbang-D (Koor)</p>
-                </div>
-                <div class="team-member">
-                    <h3>Heri Saptono</h3>
-                    <p>Litbang-D</p>
-                </div>
-                <div class="team-member">
-                    <h3>Firmansah Hendra P</h3>
-                    <p>Litbang-D</p>
-                </div>
-                <div class="team-member">
-                    <h3>Chris Celis</h3>
-                    <p>Litbang-D</p>
-                </div>
-                <div class="team-member">
-                    <h3>Damayanti Sedtyasari</h3>
-                    <p>Bendahara-MD</p>
-                </div>
-                <div class="team-member">
-                    <h3>Agus Budi Hartono</h3>
-                    <p>Bendahara-MD</p>
+
+            <div class="card">
+                <h2>🔬 Metode Penelitian</h2>
+                <p><strong>Mixed Method</strong> - Pendekatan Campuran:</p>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">📊</div>
+                        <div class="stat-label">Kuantitatif<br>Analisis Kuesioner & Laporan Keuangan</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">💬</div>
+                        <div class="stat-label">Kualitatif<br>Analisis Naratif & Sentimen</div>
+                    </div>
                 </div>
             </div>
-        </section>
+
+            <div class="card">
+                <h2>📈 Keluaran Penelitian</h2>
+                <ol>
+                    <li>Laporan analisis persepsi, sentimen, dan kemampuan jemaat</li>
+                    <li>Hasil regresi dan grafik hubungan persepsi–kemampuan–setoran DAPER</li>
+                    <li>Peta sumber pendanaan DAPER (kas vs amplop khusus)</li>
+                    <li>Rekomendasi kebijakan dan strategi komunikasi</li>
+                    <li>Template kuesioner dan panduan pengumpulan data</li>
+                </ol>
+            </div>
+        </div>
+
+        <div id="problem" class="content-section">
+            <div class="card">
+                <h2>❓ Rumusan Masalah</h2>
+                <ul class="problem-list">
+                    <li>
+                        <strong>a.</strong> Bagaimana persepsi dan sentimen warga jemaat serta Majelis Jemaat terhadap sistem dan pengelolaan DAPER?
+                    </li>
+                    <li>
+                        <strong>b.</strong> Bagaimana hubungan antara penerimaan persembahan Minggu dan kontribusi DAPER jemaat sebagai indikator kemampuan dan komitmen warga?
+                    </li>
+                    <li>
+                        <strong>c.</strong> Bagaimana tingkat pemahaman Penatua dan Diaken mengenai fungsi DAPER (JAPEN vs operasional)?
+                    </li>
+                    <li>
+                        <strong>d.</strong> Bagaimana variasi sumber pendanaan DAPER dan apa maknanya terhadap kesadaran partisipatif jemaat?
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>🔍 Hipotesis</h2>
+                <div class="variable-card">
+                    <strong>H₀ (Hipotesis Nol):</strong>
+                    <p>Tidak ada hubungan yang signifikan antara persepsi jemaat, keterbukaan laporan, kondisi persembahan, dan besarnya setoran DAPER.</p>
+                </div>
+                <div class="variable-card" style="margin-top: 15px;">
+                    <strong>H₁ (Hipotesis Alternatif):</strong>
+                    <p>Terdapat hubungan yang signifikan antara persepsi jemaat, keterbukaan laporan, kondisi persembahan, dan besarnya setoran DAPER.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>👥 Populasi dan Sampel</h2>
+                <p><strong>Populasi:</strong> Seluruh Jemaat di MD Surabaya Timur 1</p>
+                <p><strong>Metode Sampling:</strong> Rumus Slovin untuk menentukan jumlah responden minimal</p>
+                
+                <div class="highlight-box" style="margin: 20px 0;">
+                    <h3>📐 Rumus Slovin</h3>
+                    <div style="text-align: center; font-size: 20px; margin: 15px 0; font-family: 'Courier New', monospace;">
+                        n = N / (1 + N × e²)
+                    </div>
+                    <p style="margin-top: 10px;"><strong>Keterangan:</strong></p>
+                    <ul style="margin-left: 20px;">
+                        <li><strong>n</strong> = Jumlah sampel yang dibutuhkan</li>
+                        <li><strong>N</strong> = Jumlah populasi (total warga jemaat)</li>
+                        <li><strong>e</strong> = Margin of error / tingkat kesalahan (biasanya 5% atau 0,05)</li>
+                    </ul>
+                </div>
+
+                <div class="variable-card" style="margin: 20px 0;">
+                    <h3 style="color: #2c3e50; margin-bottom: 15px;">💡 Contoh Perhitungan</h3>
+                    <p><strong>Jemaat A memiliki 500 warga jemaat dewasa</strong></p>
+                    <p style="margin: 10px 0;">Dengan margin of error 5% (e = 0,05):</p>
+                    <div style="background: white; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #4A90E2;">
+                        <p style="font-family: 'Courier New', monospace; line-height: 1.8;">
+                            n = 500 / (1 + 500 × 0,05²)<br>
+                            n = 500 / (1 + 500 × 0,0025)<br>
+                            n = 500 / (1 + 1,25)<br>
+                            n = 500 / 2,25<br>
+                            <strong style="color: #4A90E2;">n = 222,22 ≈ 223 responden</strong>
+                        </p>
+                    </div>
+                    <p style="color: #e74c3c; font-weight: bold;">✓ Jadi minimal 223 warga jemaat dewasa yang harus disurvei dari Jemaat A</p>
+                </div>
+
+                <div class="variable-card" style="margin: 20px 0;">
+                    <h3 style="color: #2c3e50; margin-bottom: 15px;">📊 Tabel Referensi Cepat</h3>
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                        <thead>
+                            <tr style="background: #4A90E2; color: white;">
+                                <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Populasi (N)</th>
+                                <th style="padding: 10px; text-align: center; border: 1px solid #ddd;">Sampel (n) dengan e=5%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #ddd;">100 warga</td>
+                                <td style="padding: 10px; text-align: center; border: 1px solid #ddd; font-weight: bold;">80 responden</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 10px; border: 1px solid #ddd;">200 warga</td>
+                                <td style="padding: 10px; text-align: center; border: 1px solid #ddd; font-weight: bold;">132 responden</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #ddd;">300 warga</td>
+                                <td style="padding: 10px; text-align: center; border: 1px solid #ddd; font-weight: bold;">169 responden</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 10px; border: 1px solid #ddd;">500 warga</td>
+                                <td style="padding: 10px; text-align: center; border: 1px solid #ddd; font-weight: bold;">223 responden</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #ddd;">1000 warga</td>
+                                <td style="padding: 10px; text-align: center; border: 1px solid #ddd; font-weight: bold;">286 responden</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Kelompok Responden:</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">👥</div>
+                        <div class="stat-label">Seluruh Penatua & Diaken<br>di lingkup MD ST 1<br><span style="color: #e74c3c; font-weight: bold; font-size: 12px;">⚠️ WAJIB</span></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">📊</div>
+                        <div class="stat-label">Warga Jemaat Dewasa Aktif<br><span style="color: #4A90E2; font-weight: bold;">Sesuai Hasil Rumus Slovin</span><br><span style="font-size: 12px; color: #7f8c8d;">(Tergantung populasi tiap jemaat)</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="variables" class="content-section">
+            <div class="card">
+                <h2>📊 Variabel Penelitian</h2>
+                <div class="variable-grid">
+                    <div class="variable-card">
+                        <span class="variable-code">X₁</span>
+                        <h3>Persepsi & Kepercayaan</h3>
+                        <p>Tingkat kepercayaan dan persepsi jemaat terhadap transparansi dan akuntabilitas DAPER</p>
+                    </div>
+                    <div class="variable-card">
+                        <span class="variable-code">X₂</span>
+                        <h3>Pemahaman Fungsi</h3>
+                        <p>Sejauh mana jemaat memahami tujuan DAPER (JAPEN vs operasional)</p>
+                    </div>
+                    <div class="variable-card">
+                        <span class="variable-code">X₃</span>
+                        <h3>Sumber Dana</h3>
+                        <p>Asal dana: kas umum, amplop khusus, atau pos lain</p>
+                    </div>
+                    <div class="variable-card">
+                        <span class="variable-code">X₄</span>
+                        <h3>Kondisi Persembahan</h3>
+                        <p>Tren naik-turun persembahan sebagai indikator kemampuan jemaat</p>
+                    </div>
+                    <div class="variable-card" style="grid-column: span 2;">
+                        <span class="variable-code">Y</span>
+                        <h3>Rasio & Konsistensi Pembayaran DAPER</h3>
+                        <p>Persentase dan kontinuitas setoran DAPER tiap jemaat</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📋 Instrumen Penelitian</h2>
+                <h3>1. Kuesioner Tertutup (Skala 1-5)</h3>
+                <ul>
+                    <li>Transparansi laporan keuangan</li>
+                    <li>Akuntabilitas penggunaan dana</li>
+                    <li>Persepsi dan kepercayaan terhadap DAPER</li>
+                    <li>Konsistensi pembayaran DAPER</li>
+                </ul>
+
+                <h3>2. Kuesioner Terbuka / Wawancara</h3>
+                <ul>
+                    <li>Pemahaman fungsi DAPER</li>
+                    <li>Sumber dana yang digunakan</li>
+                    <li>Sentimen dan saran warga jemaat</li>
+                </ul>
+
+                <h3>3. Studi Dokumen</h3>
+                <p>Laporan keuangan jemaat 3-5 tahun terakhir untuk menghitung rasio persembahan terhadap setoran DAPER</p>
+            </div>
+
+            <div class="card">
+                <h2>📊 Teknik Analisis Data</h2>
+                <ol>
+                    <li><strong>Analisis Deskriptif:</strong> Menggambarkan persepsi, sentimen, dan tren data numerik</li>
+                    <li><strong>Analisis Inferensial:</strong> Uji korelasi Pearson dan regresi linier berganda</li>
+                    <li><strong>Analisis Rasio:</strong> Perbandingan persembahan Minggu terhadap setoran DAPER</li>
+                    <li><strong>Analisis Kualitatif Tematik:</strong> Mengelompokkan opini dan persepsi jemaat</li>
+                </ol>
+            </div>
+        </div>
+
+        <div id="timeline" class="content-section">
+            <div class="card">
+                <h2>📅 Jadwal Kegiatan</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">25 – 31 Oktober 2025</div>
+                        <div class="timeline-title">1. Persiapan Instrumen Penelitian</div>
+                        <div class="timeline-desc">Finalisasi kuesioner, panduan pengisian, dan template rekap data</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">02 November 2025</div>
+                        <div class="timeline-title">2. Sosialisasi ke Komperlitbang Jemaat</div>
+                        <div class="timeline-desc">Penjelasan tujuan, metode, serta pembagian peran pengumpulan data di tiap jemaat</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">04 November – 07 Desember 2025</div>
+                        <div class="timeline-title">3. Pengumpulan Data Responden</div>
+                        <div class="timeline-desc">Pengisian kuesioner oleh Majelis Jemaat dan warga jemaat. Diperpanjang agar tidak berbenturan dengan kegiatan akhir tahun</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">08 – 14 Desember 2025</div>
+                        <div class="timeline-title">4. Rekapitulasi & Analisis Data Awal</div>
+                        <div class="timeline-desc">Pengolahan data kuantitatif dan kualitatif</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">15 – 21 Desember 2025</div>
+                        <div class="timeline-title">5. Penyusunan Laporan Akhir</div>
+                        <div class="timeline-desc">Penyusunan laporan penelitian lengkap beserta grafik dan rekomendasi awal</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">Pertengahan Januari 2026</div>
+                        <div class="timeline-title">6. Presentasi Hasil ke PHMD ST 1</div>
+                        <div class="timeline-desc">Pemaparan hasil awal sebagai bahan evaluasi dan masukan kebijakan</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">Februari 2026</div>
+                        <div class="timeline-title">7. Presentasi ke PHMJ Seluruh Jemaat</div>
+                        <div class="timeline-desc">Penyampaian hasil dan rekomendasi untuk mendapatkan umpan balik</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">Maret – April 2026</div>
+                        <div class="timeline-title">8. Pemaparan Final pada Sidang ke-50/2026</div>
+                        <div class="timeline-desc">Penyampaian laporan akhir, rekomendasi kebijakan, dan rencana tindak lanjut di GKJW Jemaat Ngagel</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="team" class="content-section">
+            <div class="card">
+                <h2>👥 Tim Peneliti</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <strong>Teguh Iman</strong>
+                        <span>Koordinator<br>Litbang-D</span>
+                    </div>
+                    <div class="team-member">
+                        <strong>Heri Saptono</strong>
+                        <span>Litbang-D</span>
+                    </div>
+                    <div class="team-member">
+                        <strong>Firmansah Hendra P.</strong>
+                        <span>Litbang-D</span>
+                    </div>
+                    <div class="team-member">
+                        <strong>Chris Celis</strong>
+                        <span>Litbang-D</span>
+                    </div>
+                    <div class="team-member">
+                        <strong>Damayanti Sedtyasari</strong>
+                        <span>Bendahara MD</span>
+                    </div>
+                    <div class="team-member">
+                        <strong>Agus Budi Hartono</strong>
+                        <span>Bendahara MD</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🎯 Penutup</h2>
+                <p>Proposal ini disusun sebagai upaya untuk melihat secara jujur kondisi Dana Persekutuan di lingkup Majelis Daerah Surabaya Timur 1.</p>
+                
+                <div class="highlight-box">
+                    <h3>🌟 Harapan</h3>
+                    <p>Penelitian ini dapat menjadi dasar untuk bersama-sama meningkatkan:</p>
+                    <ul style="margin-top: 10px;">
+                        <li>✓ Kepercayaan</li>
+                        <li>✓ Keterbukaan</li>
+                        <li>✓ Semangat mendukung pelayanan melalui Dana Persekutuan</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
-        // Memastikan DOM telah dimuat sepenuhnya sebelum menjalankan skrip
-        document.addEventListener('DOMContentLoaded', () => {
-
-            /*
-             * Animasi Scroll Fade-Up
-             * Menggunakan Intersection Observer untuk mendeteksi elemen saat muncul di viewport.
-             */
-            const fadeUpElements = document.querySelectorAll('.fade-up');
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const fadeObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        fadeObserver.unobserve(entry.target); // Hentikan pengamatan setelah terlihat
-                    }
-                });
-            }, observerOptions);
-
-            fadeUpElements.forEach(el => {
-                fadeObserver.observe(el);
+        function showTab(tabName) {
+            const sections = document.querySelectorAll('.content-section');
+            const buttons = document.querySelectorAll('.tab-btn');
+            
+            sections.forEach(section => {
+                section.classList.remove('active');
             });
-
-            /*
-             * Efek Parallax pada Header
-             * Memberi efek visual kedalaman saat halaman di-scroll.
-             */
-            const header = document.querySelector('.document-header');
-            if (header) {
-                window.addEventListener('scroll', () => {
-                    const scrolled = window.pageYOffset;
-                    const parallax = scrolled * 0.3;
-                    header.style.transform = `translateY(${parallax}px)`;
-                });
-            }
-
-            /*
-             * Efek Interaktif pada Bar Chart
-             * Memberikan umpan balik visual kedalaman saat kursor mengarah ke bar chart.
-             */
-            const chartBars = document.querySelectorAll('.chart-bar');
-            chartBars.forEach(bar => {
-                bar.addEventListener('mouseenter', function() {
-                    this.style.filter = 'brightness(1.1)';
-                    this.style.boxShadow = '0 4px 12px rgba(30, 58, 138, 0.3)';
-                });
-                
-                bar.addEventListener('mouseleave', function() {
-                    this.style.filter = 'brightness(1)';
-                    this.style.boxShadow = 'none';
-                });
+            
+            buttons.forEach(button => {
+                button.classList.remove('active');
             });
-
-            /*
-             * Animasi Interaktif pada Kartu Variabel
-             * Efek visual untuk menonjolkan item yang diinteraksi.
-             */
-            const variableItems = document.querySelectorAll('.variable-item');
-            variableItems.forEach(item => {
-                item.addEventListener('mouseenter', function() {
-                    this.style.borderLeftColor = '#3b82f6';
-                    this.style.transform = 'translateX(4px)';
-                });
-                
-                item.addEventListener('mouseleave', function() {
-                    this.style.borderLeftColor = '#f3f4f6';
-                    this.style.transform = 'translateX(0)';
-                });
-            });
-
-            /*
-             * Animasi Staggered pada Kartu Metodologi
-             * Memastikan setiap kartu muncul secara berurutan.
-             */
-            const methodologyCards = document.querySelectorAll('.methodology-card');
-            methodologyCards.forEach((card, index) => {
-                const cardObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            setTimeout(() => {
-                                card.style.opacity = '1';
-                                card.style.transform = 'translateY(0)';
-                            }, index * 150);
-                            cardObserver.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.2 });
-
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-                cardObserver.observe(card);
-            });
-
-            /*
-             * Animasi Timeline
-             * Efek slide-in pada setiap item timeline.
-             */
-            const timelineItems = document.querySelectorAll('.timeline-item');
-            timelineItems.forEach((item, index) => {
-                const timelineObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            item.style.animationDelay = `${index * 0.1}s`;
-                            item.classList.add('timeline-animate');
-                            timelineObserver.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.5 });
-                timelineObserver.observe(item);
-            });
-
-        });
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
     </script>
 </body>
 </html>
